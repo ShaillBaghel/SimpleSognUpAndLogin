@@ -1,0 +1,39 @@
+@url = http://localhost:3000
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmI0MDQ0ZWNhZTAxZmExODRhZDA1NTEiLCJpYXQiOjE2NTU5NjQ5NTB9.4Oycd2wbYZTcxg3-tBE3PfkjFQcia1qk1F3CfuH6PVs
+POST {{url}}/api/v1/user/signup
+Content-Type: application/json
+
+{
+    "firstName": "John",    
+    "lastName": "Peter",
+    "email": "peter5@gmail.com",
+    "password": "12345678",
+    "password2": "12345678"
+    
+}
+
+###
+
+POST {{url}}/api/v1/user/login 
+Content-Type: application/json
+
+{
+    "email": "peter4@gmail.com",
+    "password": "12345678"
+}
+   
+            
+###
+POST {{url}}/api/v1/user/logout
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+POST {{url}}/api/v1/user/me/upload
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data boundary=MyBoundary
+
+------MyBoundary
+Content-Type: image/jpeg
+

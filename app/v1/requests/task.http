@@ -1,0 +1,61 @@
+@url = http://localhost:3000
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmI0MDQ0ZWNhZTAxZmExODRhZDA1NTEiLCJpYXQiOjE2NTU5NjQ5NTB9.4Oycd2wbYZTcxg3-tBE3PfkjFQcia1qk1F3CfuH6PVs
+
+###
+POST {{url}}/api/v1/task/createTask
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+{
+    "name": "Task 4",
+    "description": "Task 1 description",
+    "completed": true,
+    "owner": "62b4044ecae01fa184ad0551"
+}
+
+###
+
+GET {{url}}/api/v1/task/getTasks?completed=false
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### 
+GET {{url}}/api/v1/task/getTasks?limit=1&skip=1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET {{url}}/api/v1/task/getTasks?sortBy=createdAt:desc
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+###
+GET {{url}}/api/v1/task/getTasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+GET {{url}}/api/v1/task/getTask/62ba8ab09a9d9f3ac9763466
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+DELETE {{url}}/api/v1/task/deleteTask/62ba8419d22c51b8ff3f4015
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+PATCH  {{url}}/api/v1/task/updateTask/62b98ba709609451983022e2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Task 4",
+    "description": "Task 1 description updated fourth time",
+    "completed": false,
+    "owner": "62b4044ecae01fa184ad0551"
+}
