@@ -54,8 +54,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "name": "Task 4",
-    "description": "Task 1 description updated fourth time",
-    "completed": false,
-    "owner": "62b4044ecae01fa184ad0551"
+    
+    "description": "Task 1 description updated fourth time once again",
+    "completed": true
+  
 }

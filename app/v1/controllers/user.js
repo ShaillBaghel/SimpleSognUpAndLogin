@@ -74,14 +74,9 @@ exports.logout = async (req, res) => {
 exports.uploadAvatar = async (req, res) => {
   
   console.log("req.file",req.file, "req.user", req.user);
-  try {
-    const user = await User.findByIdAndUpdate(
-      req.user._id,
-      { avatar: req.file.path },
-      { new: true }
-    );
-    res.status(200).json({ success: true, user });
-  } catch (e) {
-    res.status(400).json({ success: false, e });
-  }
+  req.user.avatar = req.file.buffer;
+  await req.user.save();
+  res.status(200).json({ success: true, user: req.user });
+
+  
 }

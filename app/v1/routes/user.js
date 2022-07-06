@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 const { auth } = require("../middleware/auth");
 const validate = require('../controllers/user.validate');
 const multer = require('multer');
-const upload = multer({ dest: 'images' });
+const upload = multer({limit: {fileSize: 1000000}});
 
 const router = express.Router();
 
