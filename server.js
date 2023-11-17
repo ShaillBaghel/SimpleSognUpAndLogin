@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const Config = require("./app/config/config-localhost");
 const inItMongo = require("./app/database/index");
+const cors = require("cors");
 
 class Server {
   constructor() {
@@ -17,6 +18,17 @@ class Server {
 
   appExecute() {
     inItMongo();
+
+    this.app.use(function (req, res, next) {
+			res.header("Access-Control-Allow-Origin", "*");
+			res.header("Access-Control-Allow-Methods", "GET,PUT,POST, PATCH, DELETE");
+			res.header(
+				"Access-Control-Allow-Headers",
+				"Content-Type, Authorization, isEncryptedAPI"
+			);
+			next();
+		});
+    
     this.includeRoutes();
     this.app.use(express.json());
     // Body-parser middleware
@@ -29,6 +41,7 @@ class Server {
       })
     );
     this.app.use(cookieParser());
+    this.app.use(cors());
     this.server.listen(this.port, () => {
       console.log(`App listening on port ${this.port}`);
     });

@@ -1,6 +1,6 @@
 @url = http://localhost:3000
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmI0MDQ0ZWNhZTAxZmExODRhZDA1NTEiLCJpYXQiOjE2NTU5NjQ5NTB9.4Oycd2wbYZTcxg3-tBE3PfkjFQcia1qk1F3CfuH6PVs
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmI0MDQ0ZWNhZTAxZmExODRhZDA1NTEiLCJpYXQiOjE2NTc3NzU3OTl9.3eofxigU8PDB794U7RJdOLziVZZ60piRe-ngs9oi8uY
 
 ###
 POST {{url}}/api/v1/task/createTask

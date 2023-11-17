@@ -4,6 +4,7 @@ const Config = require("../../config/config-localhost");
 const { USER_NOT_LOGGED_IN } = require("./../constants/messages");
 
 const auth = async (req, res, next) => {
+  
   try {
   const token = req.header("Authorization").replace("Bearer ", "");
 
@@ -15,12 +16,12 @@ const auth = async (req, res, next) => {
       error: USER_NOT_LOGGED_IN,
     });
   }
-  console.log("user", user);
+  
   req.user = user;
   req.token = token;
   next();
   } catch (error) {
-    console.log("error", error);
+    
     res.status(500).json({
       error: "Something went wrong",
     });

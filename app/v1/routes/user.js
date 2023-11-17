@@ -20,4 +20,10 @@ router.post("/logout", auth, controller.logout);
 //upload user avatar
 router.post("/me/upload", auth, upload.single("avatar"), controller.uploadAvatar);
 
+//get user avatar
+router.get("/me/:id/avatar", controller.getAvatar);
+
+//get all users
+router.get("/users", controller.getAllUsers);
+
 module.exports = router;

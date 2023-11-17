@@ -68,6 +68,7 @@ exports.getTaskById = async (req, res) => {
 }
 
 exports.deleteTask = async (req, res) => {
+  
   const _id = req.params.id;
   try {
     const task = await Task.findOneAndDelete({ _id, owner: req.user._id });
@@ -81,6 +82,7 @@ exports.deleteTask = async (req, res) => {
 } 
 
 exports.updateTask = async (req, res) => {
+  
   const updates = Object.keys(req.body);
   const allowedUpdates = ["description", "completed"];
   const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
@@ -88,7 +90,6 @@ exports.updateTask = async (req, res) => {
     return res.status(400).send({ error: "Invalid updates!" });
   }
   
-
   try {
     const task = await Task.findOne({ _id: req.params.id, owner: req.user._id });
     if (!task) {
@@ -97,7 +98,7 @@ exports.updateTask = async (req, res) => {
     updates.forEach((update) => (task[update] = req.body[update]));
     await task.save();
     res.send(task);
-  } catch (e) {
+  } catch (e) { 
     res.status(400).send(e);
   }
 }

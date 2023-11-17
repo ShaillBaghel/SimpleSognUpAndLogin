@@ -1,6 +1,6 @@
 @url = http://localhost:3000
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmI0MDQ0ZWNhZTAxZmExODRhZDA1NTEiLCJpYXQiOjE2NTU5NjQ5NTB9.4Oycd2wbYZTcxg3-tBE3PfkjFQcia1qk1F3CfuH6PVs
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmIwM2I2YjRmMjNkYjY2YTg1MDYyYmIiLCJpYXQiOjE2NTgzMTIyNjl9.18mxP35q6IJUhszVSsS9QvfC7Eg1PxWYf3RjgPkKeMg
 POST {{url}}/api/v1/user/signup
 Content-Type: application/json
 
@@ -19,8 +19,8 @@ POST {{url}}/api/v1/user/login
 Content-Type: application/json
 
 {
-    "email": "peter4@gmail.com",
-    "password": "12345678"
+    "email": "pawan@gmail.com",
+    "password": "123@Hello"
 }
    
             
@@ -34,6 +34,11 @@ POST {{url}}/api/v1/user/me/upload
 Authorization: Bearer {{token}}
 Content-Type: multipart/form-data boundary=MyBoundary
 
-------MyBoundary
-Content-Type: image/jpeg
 
+### 
+GET {{url}}/api/v1/user/me/62b03b6b4f23db66a85062bb/avatar
+Authorization: Bearer {{token}}
+
+###
+GET {{url}}/api/v1/user/users
+Content-Type: application/json
